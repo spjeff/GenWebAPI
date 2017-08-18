@@ -51,6 +51,8 @@
 
 
         </div>
+
+        <hr />
         
         <div>
             <img src="https://en.gravatar.com/userimage/46254763/1789248e2a473e8fbfa80818faf70551.jpeg" height="40" width="40" />&nbsp;
