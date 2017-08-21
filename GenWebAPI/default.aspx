@@ -32,12 +32,13 @@
             <hr />
             <br />
             <ol>
-                <asp:Label ID="Label1" runat="server" Text="Web API Name"></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Visual Studio - Web API Name"></asp:Label>
                 <li>
                     <asp:TextBox ID="ProjectName" runat="server"></asp:TextBox></li>
                 <br />
                 <li>
-                    <asp:Button CssClass="download" ID="Generate" runat="server" Text="Download Visual Studio ZIP" OnClick="Generate_Click" />
+                    <asp:Button CssClass="download" ID="Generate" runat="server" Text="Download - Classic ZIP" OnClick="Generate_Click" />
+                    <asp:Button CssClass="download" ID="GenerateBreeze" runat="server" Text="Download - Breeze (EDMX+Controller) ZIP" OnClick="Generate_Breeze_Click" />
                 </li>
                 <br />
                 <li>Press F5 to run and test</li>
@@ -49,10 +50,7 @@
             <img src="2.gif" />
             <br />
 
-
         </div>
-
-        <hr />
         
         <div>
             <img src="https://en.gravatar.com/userimage/46254763/1789248e2a473e8fbfa80818faf70551.jpeg" height="40" width="40" />&nbsp;

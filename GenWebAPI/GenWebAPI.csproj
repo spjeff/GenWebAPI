@@ -73,6 +73,7 @@
     <Content Include="API-icon.png" />
     <Content Include="packages.config" />
     <Content Include="HelloTime.zip" />
+    <Content Include="HelloTime_Breeze.zip" />
     <None Include="Properties\PublishProfiles\spjeff - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

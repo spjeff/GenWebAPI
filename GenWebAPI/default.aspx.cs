@@ -17,8 +17,29 @@ namespace GenWebAPI
 
         }
 
+        protected void Generate_Breeze_Click(object sender, EventArgs e)
+        {
+            Generate_ZIP(true);
+        }
         protected void Generate_Click(object sender, EventArgs e)
         {
+            Generate_ZIP(false);
+        }
+
+        protected void Generate_ZIP( Boolean breeze)
+        {
+            string filename;
+            if (breeze)
+            {
+                //Breeze WebAPI template
+                filename = "HelloTime_Breeze.zip";
+            }
+            else
+            {
+                filename = "HelloTime.zip";
+            }
+
+
             string WebAPIName = ProjectName.Text;
 
             Guid assemblyGuid = Guid.NewGuid();
@@ -28,7 +49,7 @@ namespace GenWebAPI
                 Directory.Delete(baseFolder, true);
             }
             Directory.CreateDirectory(baseFolder);
-            ZipFile.ExtractToDirectory(Server.MapPath("~/") + "HelloTime.zip", baseFolder);
+            ZipFile.ExtractToDirectory(Server.MapPath("~/") + filename, baseFolder);
 
             //base download folder
             string baseDownload = HttpContext.Current.Server.MapPath("~/") + "download" + "\\";
