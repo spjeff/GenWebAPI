@@ -52,7 +52,7 @@ namespace GenWebAPI
             ZipFile.ExtractToDirectory(Server.MapPath("~/") + filename, baseFolder);
 
             //base download folder
-            string baseDownload = HttpContext.Current.Server.MapPath("~/") + "download" + "\\";
+            string baseDownload = HttpContext.Current.Server.MapPath("~/") + "DOWNLOAD" + assemblyGuid + "\\";
             if (!Directory.Exists(baseDownload))
             {
                 Directory.CreateDirectory(baseDownload);
@@ -86,12 +86,14 @@ namespace GenWebAPI
                 File.WriteAllText(file, txt);
             }
 
+            //rename
             File.Move(baseFolder + "HelloTime.sln", baseFolder + WebAPIName + ".sln");
             File.Move(baseFolder + "HelloTime.v12.suo", baseFolder + WebAPIName + ".v12.suo");
             File.Move(baseFolder + "HelloTime\\HelloTime.csproj", baseFolder + "HelloTime\\" + WebAPIName + ".csproj");
             File.Move(baseFolder + "HelloTime\\HelloTime.csproj.user", baseFolder + "HelloTime\\" + WebAPIName + ".csproj.user");
-
             Directory.Move(baseFolder + "HelloTime", (baseFolder + WebAPIName));
+
+
             string downloadZip = baseDownload + WebAPIName + ".zip";
 
             using (FileStream stream = new FileStream(downloadZip, FileMode.Create))
@@ -132,10 +134,9 @@ namespace GenWebAPI
             {
                 Directory.Delete(baseFolder, true);
             }
-            string zipfile = WebAPIName + ".zip";
-            if (File.Exists(zipfile))
+            if (Directory.Exists(baseDownload))
             {
-                File.Delete(zipfile);
+                Directory.Delete(baseDownload, true);
             }
 
         }
